@@ -88,7 +88,7 @@ export default {
           label: "Jump"
         },
         pedalp: !pp.show ? undefined : {
-          label: `Pedalpalooza ${pp.currentYear}`
+          label: `Bike Summer`
         },
         menu: {},
       };
