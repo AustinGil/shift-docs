@@ -14,7 +14,7 @@ import Toolbar from './Toolbar.vue'
 import { RouterLink, RouterView } from 'vue-router'
 // support:
 import siteConfig from './siteConfig.js'
-import pp from './pedalp.js'
+import festInfo from './pedalp.js'
 import scrollPos from './scrollPos.js';
 
 export default {
@@ -87,7 +87,7 @@ export default {
         jump: {
           label: "Jump"
         },
-        pedalp: !pp.show ? undefined : {
+        bikefest: !festInfo.show ? undefined : {
           label: `Bike Summer`
         },
         menu: {},
@@ -140,7 +140,7 @@ export default {
     <ToolPanel name="jump" :expanded>
       <JumpTool @changeRoute="changeRoute"/>
     </ToolPanel>
-    <ToolPanel name="pedalp" :expanded>
+    <ToolPanel name="bikefest" :expanded>
       <FestivalInfo/>
     </ToolPanel>
     <ToolPanel name="menu" :expanded>
@@ -185,7 +185,11 @@ export default {
   width: 100%;
   max-width: var(--max-width);    /* to center on desktop */
   overflow: auto;
-  height: calc(100vh - 7.75rem);
+  /** 
+   * grow the panels to the full height minus the bottom bar
+   * uses dynamic view height to account for ios safari bottom url bar
+   */
+  height: calc(100dvh - 7.75rem);
   border-top: var(--page-border);
   background-color: var(--page-bg);
   /* stops the cal list from scroll chaining
